@@ -108,9 +108,9 @@ const FooterMenuBar = () => {
 
   return (
     <>
-      <div className="fixed left-0 z-20 w-full px-5 py-0 bottom-2">
+      <div className="mainFooter fixed z-20 w-full">
         <div id="footer-id" className="relative" />
-        <div className="flex items-center w-full max-w-lg mx-auto rounded-[35px] bg-[#DFDADA17] backdrop-blur-3xl">
+        <div className="mfCard flex items-center justify-between bg-[#DFDADA17] backdrop-blur-3xl">
           <FooterMenuButton
             name="Bid"
             image={bidThunderIcon}
@@ -201,7 +201,7 @@ export const FooterMenuButton = ({
 }) => (
   <button
     type="button"
-    className={`cursor-pointer relative flex items-center rounded-xl flex-col justify-center font-bold text-xs px-2.5 py-1.5 gap-1 select-none flex-1 text-white
+    className={`cursor-pointer relative flex items-center rounded-xl flex-col justify-center px-2.5 pt-4 pb-3 gap-1 select-none flex-1 text-white
   ${active && 'text-white'}`}
     onClick={(e) => onClick?.(e)}
   >
@@ -209,13 +209,13 @@ export const FooterMenuButton = ({
       <CustomImage
         src={image}
         alt={name}
-        width={28}
-        height={28}
-        className={`w-7 h-7 object-contain
+        // width={28}
+        height={48}
+        className={`w-9 h-9 object-contain
         ${active && 'filter-none'}`}
       />
     )}
-    <span>{name}</span>
+    <span className="font-medium text-base">{name}</span>
     <div
       className={`absolute hidden -bottom-1 left-1/2 -translate-x-1/2 bg-[#D9D9D9] rounded-sm shadow-[0px_0px_4px_0px_#B88CFF] h-1 w-4/5
       ${active && '!block'}`}

@@ -25,9 +25,9 @@ const PlayerIconSection = ({ profiles }) => {
   }, [showPlayerName?.show, showPlayerName?.data?.player_id]);
 
   return (
-    <section className="mt-4 px-4 font-bold relative add-card-padding">
+    <section className="font-bold relative">
       <div
-        className={`absolute  -top-5 left-0 w-full flex items-center justify-center  transition-all duration-500 ease-in-out ${showPlayerName?.show ? 'opacity-100 z-10' : 'opacity-0 -z-10'}`}
+        className={`absolute -top-5 left-0 w-full flex items-center justify-center transition-all duration-500 ease-in-out ${showPlayerName?.show ? 'opacity-100 z-10' : 'opacity-0 -z-10'}`}
       >
         <div className="bg-white w-fit flex gap-1 text-center rounded-lg text-xs text-black py-1 px-2">
           <CustomImage
@@ -49,32 +49,39 @@ const PlayerIconSection = ({ profiles }) => {
           </button>
         </div>
       </div>
-      <div className="text-sm">Bidders</div>
-      <div className="mt-2 flex flex-wrap gap-1">
-        {profiles?.length ? (
-          profiles?.map?.((profile, index) => {
-            return (
-              <button
-                className="w-7 h-7 relative"
-                key={index}
-                onClick={() => setShowPlayerName({ show: true, data: profile })}
-              >
-                <CustomImage
-                  src={
-                    profile?.profile_image ? profile?.profile_image : tempImage
+
+      <div className="container-fluid">
+        <div className="font-medium text-base">Bidders</div>
+        <div className="mt-2 flex flex-wrap gap-1">
+          {profiles?.length ? (
+            profiles?.map?.((profile, index) => {
+              return (
+                <button
+                  className="w-7 h-7 rounded-full overflow-hidden relative"
+                  key={index}
+                  onClick={() =>
+                    setShowPlayerName({ show: true, data: profile })
                   }
-                  className="w-full h-full"
-                  height={100}
-                  width={100}
-                  alt="profile image"
-                  unoptimized={DYNAMIC_IMAGE_UNOPTIMISED}
-                />
-              </button>
-            );
-          })
-        ) : (
-          <div className="text-xs ">No Bidders found</div>
-        )}
+                >
+                  <CustomImage
+                    src={
+                      profile?.profile_image
+                        ? profile?.profile_image
+                        : tempImage
+                    }
+                    className="w-full h-full rounded-full object-cover"
+                    height={100}
+                    width={100}
+                    alt="profile image"
+                    unoptimized={DYNAMIC_IMAGE_UNOPTIMISED}
+                  />
+                </button>
+              );
+            })
+          ) : (
+            <div className="text-xs ">No Bidders found</div>
+          )}
+        </div>
       </div>
     </section>
   );

@@ -385,7 +385,7 @@ const BIdForm = ({
       className={`animation-card mx-auto relative bg-box-shadow ${showShakeEffect ? 'shake-effect' : ''} ${currentAuction?.state === AUCTION_STATUS.LIVE ? '' : '-mt-0.5'} `}
     >
       {currentAuction?.state === AUCTION_STATUS.LIVE ? (
-        <div className="w-full h-full !bg-[#190C3D] py-2 px-5 flex items-center">
+        <div className="w-full !bg-[#190C3D] py-2 px-5 flex items-center h-12">
           {isWinning ? (
             <p className="text-[#9ca3af]">You are WINNING</p>
           ) : (

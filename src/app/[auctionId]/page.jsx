@@ -193,7 +193,7 @@ const AuctionPage = () => {
 
   return (
     <PageSuspense>
-      <div className="text-base flex w-full">
+      <div className="container-fluid text-base flex w-full">
         <div className="w-1/2 text-sm">
           {currentAuction?.title || NOT_APPLICABLE}
         </div>
@@ -203,192 +203,200 @@ const AuctionPage = () => {
           {currentAuction?.products?.price || NOT_APPLICABLE}
         </div>
       </div>
-      <div className="remove-card-padding">
-        <div className="w-full flex flex-row items-start justify-center max-w-6xl mx-auto shadow-lg">
+      <div className="container-fluid">
+        <div className="grid grid-cols-2 gap-4 pt-4">
           {/* LEFT SIDE: Product Card */}
-          <div className="relative mt-[12px] aspect-square flex items-center justify-center">
-            <CustomCard className="absolute -top-2 left-1/2 -translate-x-1/2 z-10">
-              {currentAuction?.auctionCategory?.title || ''} |{' '}
-              {currentAuction?.plays_consumed_on_bid} X
-            </CustomCard>
-
-            {/* Arrows */}
-            <button
-              className="absolute -right-5 flex items-center h-full justify-center cursor-pointer disabled:hidden"
-              disabled
-            >
-              <div className="bg-[#B57FEC80] rounded-md aspect-square h-10 flex items-center hover:bg-white hover:text-[#9E63FF] text justify-center gap-1 active:opacity-90 outline-none">
-                <div className="font-bold text-2xl">
-                  <FaArrowRight />
+          <div className="col-span-1 ps-2">
+            <div className="relative aspect-square flex items-center justify-center ms-[-30px]">
+              <CustomCard className="absolute -top-2 left-1/2 -translate-x-1/2 z-10 ml-1">
+                {currentAuction?.auctionCategory?.title || ''} |{' '}
+                {currentAuction?.plays_consumed_on_bid} X
+              </CustomCard>
+              {/* Arrows */}
+              <button
+                className="absolute -right-5 flex items-center h-full justify-center cursor-pointer disabled:hidden"
+                disabled
+              >
+                <div className="bg-[#B57FEC80] rounded-md aspect-square h-10 flex items-center hover:bg-white hover:text-[#9E63FF] text justify-center gap-1 active:opacity-90 outline-none">
+                  <div className="font-bold text-2xl">
+                    <FaArrowRight />
+                  </div>
                 </div>
-              </div>
-            </button>
-            <button
-              className="absolute -left-5 flex items-center h-full justify-center disabled:hidden"
-              disabled
-            >
-              <div className="bg-[#B57FEC80] rounded-md aspect-square h-10 flex items-center hover:bg-white hover:text-[#9E63FF] text justify-center gap-1 active:opacity-90 outline-none">
-                <div className="font-bold text-2xl">
-                  <FaArrowLeft />
+              </button>
+              <button
+                className="absolute -left-5 flex items-center h-full justify-center disabled:hidden"
+                disabled
+              >
+                <div className="bg-[#B57FEC80] rounded-md aspect-square h-10 flex items-center hover:bg-white hover:text-[#9E63FF] text justify-center gap-1 active:opacity-90 outline-none">
+                  <div className="font-bold text-2xl">
+                    <FaArrowLeft />
+                  </div>
                 </div>
-              </div>
-            </button>
+              </button>
 
-            {/* Product Image */}
-            <CustomImage
-              path={
-                currentAuction?.products?.productMedias?.[0]?.medias?.local_path
-              }
-              width={200}
-              height={200}
-              className="my-element !bg-[#190C3D]"
-              alt="product image"
-              unoptimized={DYNAMIC_IMAGE_UNOPTIMISED}
-            />
+              {/* Product Image */}
+              <CustomImage
+                path={
+                  currentAuction?.products?.productMedias?.[0]?.medias
+                    ?.local_path
+                }
+                width={240}
+                height={240}
+                className="my-element !bg-[#190C3D]"
+                alt="product image"
+                unoptimized={DYNAMIC_IMAGE_UNOPTIMISED}
+              />
 
-            {/* Overlays */}
-            <WinnerOverlay className="w-[calc(100%-4px)] h-[calc(100%-4px)] my-element top-[2px] left-[2px]" />
-            {userInfo?.accessToken && (
-              <LowBallanceOverlay className="w-[calc(100%-4px)] h-2/5 max-small-mobile:h-[55%] my-element bottom-[0px] left-[2px]" />
-            )}
+              {/* Overlays */}
+              <WinnerOverlay className="w-[calc(100%-4px)] h-[calc(100%-4px)] my-element top-[2px] left-[2px]" />
+              {userInfo?.accessToken && (
+                <LowBallanceOverlay className="w-[calc(100%-4px)] h-2/5 max-small-mobile:h-[55%] my-element bottom-[0px] left-[2px]" />
+              )}
+            </div>
           </div>
 
           {/* RIGHT SIDE: My Bids Panel */}
-          <div className="p-1 sm:p-6 flex flex-col text-white h-full ml-[57px]">
-            {/* Header aligned with top of image */}
-            <div className="flex justify-between items-center max-sm:gap-2">
-              <h2
-                className={`text-xs p-[2px] rounded-md cursor-pointer ${
-                  selectedTab === 'myBids' ? 'bg-purple-overlay shadow-md' : ''
-                }`}
-                onClick={() => setSelectedTab('myBids')}
-              >
-                My Bids
-              </h2>
-              <div
-                className={`w-8 h-8 rounded-md text-xs flex items-center justify-center ml-[25px] text-white cursor-pointer mr-3 ${
-                  selectedTab === 'U' ? 'bg-purple-overlay shadow-md' : ''
-                }`}
-                onClick={() => setSelectedTab('U')}
-              >
-                U
+          <div className="col-span-1">
+            <div className="p-1 sm:p-6 flex flex-col text-white h-full">
+              {/* Header aligned with top of image */}
+              <div className="flex justify-center items-center gap-2">
+                <h2
+                  className={`text-xs px-[10px] py-[5px] rounded-md cursor-pointer ${
+                    selectedTab === 'myBids'
+                      ? 'bg-purple-overlay shadow-md'
+                      : ''
+                  }`}
+                  onClick={() => setSelectedTab('myBids')}
+                >
+                  My Bids
+                </h2>
+                <div
+                  className={`px-[10px] py-[5px] rounded-md text-xs flex items-center justify-center text-white cursor-pointer ${
+                    selectedTab === 'U' ? 'bg-purple-overlay shadow-md' : ''
+                  }`}
+                  onClick={() => setSelectedTab('U')}
+                >
+                  U
+                </div>
               </div>
-            </div>
 
-            {/* Bids list */}
-            <div className="flex gap-4 text-xs text-center">
-              {(() => {
-                const staticUBids = [
-                  4.0, 1.0, 2.0, 1.1, 3.5, 2.8, 1.9, 4.2, 3.1, 2.6,
-                ]; // Extended to 10 items
-                const bids =
-                  selectedTab === 'myBids' ? getAllRecentBids() : staticUBids;
+              {/* Bids list */}
+              <div className="flex gap-4 text-xs text-center mt-3">
+                {(() => {
+                  const staticUBids = [
+                    4.0, 1.0, 2.0, 1.1, 3.5, 2.8, 1.9, 4.2, 3.1, 2.6,
+                  ]; // Extended to 10 items
+                  const bids =
+                    selectedTab === 'myBids' ? getAllRecentBids() : staticUBids;
 
-                if (bids.length === 0) {
+                  if (bids.length === 0) {
+                    return (
+                      <div className="text-gray-400 w-full">No bids yet</div>
+                    );
+                  }
+
+                  // Split bids into two groups of 5
+                  const firstFive = bids.slice(0, 5);
+                  const secondFive = bids.slice(5, 10);
+
                   return (
-                    <div className="text-gray-400 w-full">No bids yet</div>
+                    <>
+                      {/* First 5 bids */}
+                      <div className="flex-1 space-y-1">
+                        {firstFive.map((bid, i) => (
+                          <div
+                            key={i}
+                            className={
+                              i === 0 ? 'text-[#52FF00]' : 'text-white'
+                            }
+                          >
+                            {typeof bid === 'number'
+                              ? bid.toFixed(2)
+                              : parseFloat(bid).toFixed(2)}
+                          </div>
+                        ))}
+                        {/* Fill empty slots if less than 5 bids */}
+                        {Array.from({ length: 5 - firstFive.length }).map(
+                          (_, i) => (
+                            <div
+                              key={`empty-first-${i}`}
+                              className="text-transparent"
+                            >
+                              0.00
+                            </div>
+                          ),
+                        )}
+                      </div>
+
+                      {/* Separator */}
+                      <div className="text-white font-bold">|</div>
+
+                      {/* Second 5 bids */}
+                      <div className="flex-1 space-y-1">
+                        {secondFive.map((bid, i) => (
+                          <div key={i + 5} className="text-white">
+                            {typeof bid === 'number'
+                              ? bid.toFixed(2)
+                              : parseFloat(bid).toFixed(2)}
+                          </div>
+                        ))}
+                        {/* Fill empty slots if less than 5 bids in second group */}
+                        {Array.from({ length: 5 - secondFive.length }).map(
+                          (_, i) => (
+                            <div
+                              key={`empty-second-${i}`}
+                              className="text-transparent"
+                            >
+                              0.00
+                            </div>
+                          ),
+                        )}
+                      </div>
+                    </>
                   );
-                }
-
-                // Split bids into two groups of 5
-                const firstFive = bids.slice(0, 5);
-                const secondFive = bids.slice(5, 10);
-
-                return (
-                  <>
-                    {/* First 5 bids */}
-                    <div className="flex-1 space-y-1">
-                      {firstFive.map((bid, i) => (
-                        <div
-                          key={i}
-                          className={i === 0 ? 'text-[#52FF00]' : 'text-white'}
-                        >
-                          {typeof bid === 'number'
-                            ? bid.toFixed(2)
-                            : parseFloat(bid).toFixed(2)}
-                        </div>
-                      ))}
-                      {/* Fill empty slots if less than 5 bids */}
-                      {Array.from({ length: 5 - firstFive.length }).map(
-                        (_, i) => (
-                          <div
-                            key={`empty-first-${i}`}
-                            className="text-transparent"
-                          >
-                            0.00
-                          </div>
-                        ),
-                      )}
-                    </div>
-
-                    {/* Separator */}
-                    <div className="text-white font-bold">|</div>
-
-                    {/* Second 5 bids */}
-                    <div className="flex-1 space-y-1">
-                      {secondFive.map((bid, i) => (
-                        <div key={i + 5} className="text-white">
-                          {typeof bid === 'number'
-                            ? bid.toFixed(2)
-                            : parseFloat(bid).toFixed(2)}
-                        </div>
-                      ))}
-                      {/* Fill empty slots if less than 5 bids in second group */}
-                      {Array.from({ length: 5 - secondFive.length }).map(
-                        (_, i) => (
-                          <div
-                            key={`empty-second-${i}`}
-                            className="text-transparent"
-                          >
-                            0.00
-                          </div>
-                        ),
-                      )}
-                    </div>
-                  </>
-                );
-              })()}
+                })()}
+              </div>
             </div>
           </div>
         </div>
-
-        <div className="add-card-padding">
-          <BIdForm
-            onInputChange={handleInputChange}
-            inputValue={inputValue}
-            onSubmitFromNumpad={bidFormRef}
-            onClearInput={handleClearInput}
-          />
-          {/* This section contains circular progress bar and thumb images */}
-          <BidBarSection
-            productPrice={recentBidData?.[0]?.bid_price}
-            percentage={
-              socketData?.[SOCKET_DATA_KEYS.BID_PERCENTAGE]?.bid_percentage
-            }
-            isUnique={recentBidData?.[0]?.is_unique}
-            isHighest={
-              recentBidData?.[0]?.[
-                currentAuction?.auctionCategory?.code === AUCTION_TYPES.MIN
-                  ? AUCTION_CATEGORY_KEYS.IS_LOWEST
-                  : AUCTION_CATEGORY_KEYS.IS_HIGHEST
-              ] && recentBidData?.[0]?.is_unique
-            }
-            isStatus={currentAuction?.status || ''}
-            state={currentAuction?.state}
-            isHighestAndUniqueShow={recentBidData.length > 0}
-            onNumpadClick={handleNumpadClick}
-            inputValue={inputValue}
-            onSubmitBid={handleSubmitFromNumpad}
-            onClearInput={handleClearInput}
-          />
-        </div>
-
-        {currentAuction?.state === AUCTION_STATUS.LIVE ? (
-          <PlayerIconSection
-            profiles={socketData?.[SOCKET_DATA_KEYS.AVATARS] || []}
-          />
-        ) : null}
       </div>
+
+      <BIdForm
+        onInputChange={handleInputChange}
+        inputValue={inputValue}
+        onSubmitFromNumpad={bidFormRef}
+        onClearInput={handleClearInput}
+      />
+      {/* This section contains circular progress bar and thumb images */}
+      <div className="container-fluid">
+        <BidBarSection
+          productPrice={recentBidData?.[0]?.bid_price}
+          percentage={
+            socketData?.[SOCKET_DATA_KEYS.BID_PERCENTAGE]?.bid_percentage
+          }
+          isUnique={recentBidData?.[0]?.is_unique}
+          isHighest={
+            recentBidData?.[0]?.[
+              currentAuction?.auctionCategory?.code === AUCTION_TYPES.MIN
+                ? AUCTION_CATEGORY_KEYS.IS_LOWEST
+                : AUCTION_CATEGORY_KEYS.IS_HIGHEST
+            ] && recentBidData?.[0]?.is_unique
+          }
+          isStatus={currentAuction?.status || ''}
+          state={currentAuction?.state}
+          isHighestAndUniqueShow={recentBidData.length > 0}
+          onNumpadClick={handleNumpadClick}
+          inputValue={inputValue}
+          onSubmitBid={handleSubmitFromNumpad}
+          onClearInput={handleClearInput}
+        />
+      </div>
+
+      {currentAuction?.state === AUCTION_STATUS.LIVE ? (
+        <PlayerIconSection
+          profiles={socketData?.[SOCKET_DATA_KEYS.AVATARS] || []}
+        />
+      ) : null}
     </PageSuspense>
   );
 };

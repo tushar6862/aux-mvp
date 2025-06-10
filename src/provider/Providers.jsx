@@ -26,8 +26,8 @@ const Providers = ({ children }) => {
         <ApiCallProvider>
           <SocketProvider>
             <>
-              <div className="h-full min-h-screen  text-white max-w-lg mx-auto relative font-inter overflow-hidden">
-                <div className="min-h-[100vh] bg-image px-[20px]">
+              <div className="text-white relative font-inter">
+                <div className="contArea">
                   {pathName === ROUTES.BASE ? (
                     children
                   ) : (

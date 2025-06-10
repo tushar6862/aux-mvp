@@ -4,11 +4,11 @@
 
 body {
   background: linear-gradient(167.99deg, #4a038b 0%, #0c0d29 100%) !important;
- 
+
   .bg-image {
     background: url(../images/BG.png);
-    height: 100%;
-    width: 100%;
+    /* height: 100%; */
+    /* width: 100%; */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -53,15 +53,13 @@ input[type='number'] {
 }
 
 .border-custom-gradient {
-  background-image: linear-gradient(
-    228.09deg,
-    #ff2cf7 -9.95%,
-    rgba(251, 4, 123, 0.796875) 12.47%,
-    rgba(255, 126, 188, 0.81) 30.87%,
-    rgba(255, 255, 255, 0) 53.87%,
-    rgba(73, 255, 233, 0.65) 70.34%,
-    #130eff 100.44%
-  );
+  background-image: linear-gradient(228.09deg,
+      #ff2cf7 -9.95%,
+      rgba(251, 4, 123, 0.796875) 12.47%,
+      rgba(255, 126, 188, 0.81) 30.87%,
+      rgba(255, 255, 255, 0) 53.87%,
+      rgba(73, 255, 233, 0.65) 70.34%,
+      #130eff 100.44%);
 }
 
 .remove-card-padding {
@@ -75,7 +73,8 @@ input[type='number'] {
 }
 
 .bg-purple-overlay {
-  background-color: rgba(181, 127, 236, 0.5); /* equivalent to #B57FEC80 */
+  background-color: rgba(181, 127, 236, 0.5);
+  /* equivalent to #B57FEC80 */
 }
 
 .my-element {
@@ -86,15 +85,13 @@ input[type='number'] {
 }
 
 .animated-border-custom-gradient {
-  background-image: linear-gradient(
-    228.09deg,
-    #ff2cf7 -9.95%,
-    rgba(251, 4, 123, 0.796875) 12.47%,
-    rgba(255, 126, 188, 0.81) 30.87%,
-    rgba(255, 255, 255, 0) 53.87%,
-    rgba(73, 255, 233, 0.65) 70.34%,
-    #130eff 100.44%
-  );
+  background-image: linear-gradient(228.09deg,
+      #ff2cf7 -9.95%,
+      rgba(251, 4, 123, 0.796875) 12.47%,
+      rgba(255, 126, 188, 0.81) 30.87%,
+      rgba(255, 255, 255, 0) 53.87%,
+      rgba(73, 255, 233, 0.65) 70.34%,
+      #130eff 100.44%);
 }
 
 .card {
@@ -250,12 +247,12 @@ input[type='number'] {
   }
 }
 
-#terms:checked + div .check-icon {
+#terms:checked+div .check-icon {
   display: block;
   /* Show the icon when checked */
 }
 
-#terms + div .check-icon {
+#terms+div .check-icon {
   display: none;
   /* Hide the icon by default */
 }
@@ -315,6 +312,7 @@ input[type='number'] {
 }
 
 @keyframes shadow324 {
+
   0%,
   100% {
     transform: scale(1, 1);
@@ -326,11 +324,9 @@ input[type='number'] {
 }
 
 .winner-tag {
-  background: radial-gradient(
-    49.93% 49.93% at 50.07% 50.26%,
-    #7e00ff 50%,
-    #6900ca 100%
-  );
+  background: radial-gradient(49.93% 49.93% at 50.07% 50.26%,
+      #7e00ff 50%,
+      #6900ca 100%);
   font-size: 9px;
   font-weight: 700;
   line-height: 10.37px;
@@ -346,15 +342,19 @@ input[type='number'] {
   0% {
     transform: translateX(0);
   }
+
   25% {
     transform: translateX(5px);
   }
+
   50% {
     transform: translateX(-5px);
   }
+
   75% {
     transform: translateX(5px);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -367,6 +367,87 @@ button {
 .wallet-red {
   color: #ff5733;
 }
+
 .wallet-yellow {
   color: yellow;
 }
+
+
+
+/* new design */
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  width: 100%;
+  max-width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 1400px) {
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1320px;
+  }
+}
+
+.mainWrapper {
+  width: 100%;
+  margin: auto;
+  overflow-y: auto;
+  /* overflow-x: hidden; */
+  height: 100vh;
+  /* padding-bottom: 100px; */
+}
+
+.mainWrapper .contArea {
+  min-height: calc(100vh - 100px);
+}
+
+.mainFooter {
+  width: 100%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+}
+
+.mainFooter .mfCard {
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+}
+
+.bbnpCard {
+  gap: 6px;
+}
+
+.bbnpCard button {
+  width: 100%;
+}
+
+.bbnpCard button:nth-child(12) img {
+  width: 20px;
+}
+
+@media (min-width: 768px) {
+
+  .mainFooter,
+  .mainWrapper {
+    width: 430px;
+  }
+}
+
+
+
+/* /new design */

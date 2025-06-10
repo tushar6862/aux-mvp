@@ -80,7 +80,7 @@ const BidBarSection = ({
   };
   return (
     <>
-      <div className=" absolute flex items-center w-full  justify-end">
+      <div className="absolute right-[20px] flex items-center w-full justify-end">
         {AUCTION_STATUS.LIVE === state ? (
           <CircularProgressBar percentage={percentage} />
         ) : (
@@ -95,40 +95,58 @@ const BidBarSection = ({
       {AUCTION_STATUS.LIVE === state ? (
         <div
           id="BidBarSection"
-          className="w-full mt-1 flex gap-14 max-w-5xl mx-auto"
+          className="bidbar grid grid-cols-3 gap-3 pt-4 mb-5"
         >
           {/* Left - Number Pad */}
-          <div className="gap-4 ml-4 grid grid-cols-3">
-            {['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '0', '✖️'].map(
-              (val, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleNumpadClick(val)}
-                  className="bg-white/10 backdrop-blur-sm text-white text-lg h-8 w-8 rounded-[4px] flex items-center justify-center shadow-sm transition active:scale-95"
-                >
-                  {val === '✖️' ? (
-                    <CustomImage
-                      src={Cross}
-                      alt="Clear"
-                      width={12}
-                      height={12}
-                    />
-                  ) : (
-                    <>{val}</>
-                  )}
-                </button>
-              ),
-            )}
+          <div className="bbnumPad col-span-2 flex gap-1.5">
+            <div className="bbnpCard grid grid-cols-3 w-full">
+              {[
+                '1',
+                '2',
+                '3',
+                '4',
+                '5',
+                '6',
+                '7',
+                '8',
+                '9',
+                '.',
+                '0',
+                '✖️',
+              ].map((val, idx) => (
+                <>
+                  <button
+                    key={idx}
+                    onClick={() => handleNumpadClick(val)}
+                    className="bg-white/10 backdrop-blur-sm text-white text-lg h-12 rounded-[8px] flex items-center justify-center shadow-sm transition active:scale-95"
+                  >
+                    {val === '✖️' ? (
+                      <CustomImage
+                        src={Cross}
+                        alt="Clear"
+                        width={12}
+                        height={12}
+                      />
+                    ) : (
+                      <>{val}</>
+                    )}
+                  </button>
+                </>
+              ))}
+            </div>
+            <button
+              onClick={() => handleNumpadClick('→')}
+              className="bg-white/10 backdrop-blur-sm text-white rounded-md py-2 px-3 shadow-sm transition active:scale-95 flex items-center justify-center"
+              style={{
+                writingMode: 'vertical-rl',
+                textOrientation: 'mixed',
+              }}
+            >
+              <CustomImage src={Arrow} alt="Submit" width={18} height={18} />
+            </button>
           </div>
-
           {/* Vertical → button */}
-          <button
-            onClick={() => handleNumpadClick('→')}
-            className="bg-white/10 backdrop-blur-sm text-white rounded-md p-2 shadow-sm transition active:scale-95 flex items-center justify-center"
-            style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
-          >
-            <CustomImage src={Arrow} alt="Submit" width={20} height={20} />
-          </button>
+
           {/* <div className="!w-5 aspect-square h-auto flex items-center flex-col">
             <CustomImage
               src={isHighest ? LikeImg : DislikeImg}
@@ -144,20 +162,24 @@ const BidBarSection = ({
             </div>
           </div> */}
           {/* Right - Unique Info */}
-          <div className="flex flex-col items-center justify-center text-center space-y-1 mt-6 max-small-mobile:mt-5 max-small-mobile:mr-6">
-            <div className="w-[80px] h-[80px] max-small-mobile:w-[85px] max-small-mobile:h-[85px]">
-              <CustomImage
-                src={isUnique ? Highest : Lowest}
-                className="w-full h-full object-contain"
-                height={70}
-                width={70}
-                alt="thumb image"
-              />
+          <div className="bbValue col-span-1 self-center">
+            <div className="text-center mb-4">
+              <div className="w-[80px] h-[80px] max-small-mobile:w-[85px] max-small-mobile:h-[85px] m-auto">
+                <CustomImage
+                  src={isUnique ? Highest : Lowest}
+                  className="w-full h-full object-contain"
+                  height={70}
+                  width={70}
+                  alt="thumb image"
+                />
+              </div>
             </div>
-            <div className="text-3xl font-extrabold text-purple-300 leading-none">
+            <div className="text-3xl font-extrabold text-purple-300 leading-none text-center">
               04
             </div>
-            <div className="text-lg text-purple-200">Unique Values</div>
+            <div className="text-sm text-purple-200 text-center">
+              Unique Values
+            </div>
           </div>
         </div>
       ) : null}

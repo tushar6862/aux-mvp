@@ -21,8 +21,14 @@ export const generateViewport = () => ({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+      </head>
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <section className="mainWrapper bg-image">
+          <Providers>{children}</Providers>
+        </section>
       </body>
     </html>
   );
