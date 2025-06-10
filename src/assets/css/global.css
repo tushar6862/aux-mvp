@@ -1,0 +1,372 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: linear-gradient(167.99deg, #4a038b 0%, #0c0d29 100%) !important;
+ 
+  .bg-image {
+    background: url(../images/BG.png);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.padding-bg {
+  padding-left: 8px;
+  padding-right: 26px;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #9e63ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.border-custom-gradient {
+  background-image: linear-gradient(
+    228.09deg,
+    #ff2cf7 -9.95%,
+    rgba(251, 4, 123, 0.796875) 12.47%,
+    rgba(255, 126, 188, 0.81) 30.87%,
+    rgba(255, 255, 255, 0) 53.87%,
+    rgba(73, 255, 233, 0.65) 70.34%,
+    #130eff 100.44%
+  );
+}
+
+.remove-card-padding {
+  margin-left: -70px !important;
+  margin-right: -20px !important;
+}
+
+.add-card-padding {
+  margin-left: 48px !important;
+  margin-right: -20px !important;
+}
+
+.bg-purple-overlay {
+  background-color: rgba(181, 127, 236, 0.5); /* equivalent to #B57FEC80 */
+}
+
+.my-element {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 100px;
+}
+
+.animated-border-custom-gradient {
+  background-image: linear-gradient(
+    228.09deg,
+    #ff2cf7 -9.95%,
+    rgba(251, 4, 123, 0.796875) 12.47%,
+    rgba(255, 126, 188, 0.81) 30.87%,
+    rgba(255, 255, 255, 0) 53.87%,
+    rgba(73, 255, 233, 0.65) 70.34%,
+    #130eff 100.44%
+  );
+}
+
+.card {
+  perspective: 1000px;
+  height: 45px;
+  width: 120px;
+}
+
+.padding-footer {
+  padding-top: 0px;
+  padding-bottom: 3px;
+  padding-left: 8px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: flip-card 6s infinite alternate;
+}
+
+@keyframes flip-card {
+  0% {
+    transform: rotateX(180deg);
+  }
+
+  50% {
+    transform: rotateX(0deg);
+  }
+
+  100% {
+    transform: rotateX(180deg);
+  }
+}
+
+.card:hover .card-inner {
+  transform: rotateX(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateX(0deg);
+}
+
+.card-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateX(180deg);
+}
+
+.bg-box-shadow {
+  position: relative;
+  box-shadow: -30.72px 36.21px 175.57px 0px #52ff004d;
+  /* 52ff0099 */
+}
+
+.bg-box-shadow:before {
+  content: '';
+  position: absolute;
+  box-shadow: 32.92px -28.53px 234.82px 0px #ff3e6b4d;
+  /* ff3e6b99 */
+  inset: 3px;
+  border-radius: 130px;
+  z-index: -3;
+}
+
+.otp_input_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.modal_otp_input_container input {
+  border: 2px solid var(--gray);
+  border-radius: 4px;
+  width: 40px;
+  height: 35px;
+  font-size: 20px;
+  padding: 0px 11px;
+}
+
+.modal_otp_input_container input:focus {
+  border: 2px solid var(--primary);
+}
+
+.footer-modal-animation {
+  transition: 0.5s ease-in-out;
+}
+
+.spinner {
+  background-image: linear-gradient(rgb(186, 66, 255) 35%, rgb(0, 225, 255));
+  width: 50px;
+  height: 50px;
+  animation: spinning 1.7s linear infinite;
+  text-align: center;
+  border-radius: 50px;
+  filter: blur(1px);
+  box-shadow:
+    0px -5px 20px 0px rgb(186, 66, 255),
+    0px 5px 20px 0px rgb(0, 225, 255);
+}
+
+.spinner1 {
+  background-color: rgb(36, 36, 36);
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  filter: blur(10px);
+}
+
+@keyframes spinning {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.box-radius {
+  border-radius: 90px;
+}
+
+.box-radius-b {
+  border-radius: 0 0 90px 90px;
+}
+
+.blink-effect {
+  animation: blink 2s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    filter: opacity(1);
+  }
+
+  50% {
+    filter: opacity(0.1);
+  }
+
+  100% {
+    filter: opacity(1);
+  }
+}
+
+#terms:checked + div .check-icon {
+  display: block;
+  /* Show the icon when checked */
+}
+
+#terms + div .check-icon {
+  display: none;
+  /* Hide the icon by default */
+}
+
+.new-loader {
+  width: 48px;
+  height: 48px;
+  margin: 28px;
+  position: relative;
+}
+
+.new-loader:before {
+  content: '';
+  width: 48px;
+  height: 5px;
+  background: #f0808050;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow324 0.5s linear infinite;
+}
+
+.new-loader:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #f08080;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  animation: jump7456 0.5s linear infinite;
+}
+
+@keyframes jump7456 {
+  15% {
+    border-bottom-right-radius: 3px;
+  }
+
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+  }
+
+  50% {
+    transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+    border-bottom-right-radius: 40px;
+  }
+
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+
+@keyframes shadow324 {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+
+.winner-tag {
+  background: radial-gradient(
+    49.93% 49.93% at 50.07% 50.26%,
+    #7e00ff 50%,
+    #6900ca 100%
+  );
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 10.37px;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.shake-effect {
+  animation: horizontal-shaking infinite 0.1s;
+}
+
+@keyframes horizontal-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+button {
+  user-select: none;
+}
+
+.wallet-red {
+  color: #ff5733;
+}
+.wallet-yellow {
+  color: yellow;
+}
