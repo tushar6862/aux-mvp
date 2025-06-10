@@ -95,7 +95,7 @@ const BidBarSection = ({
       {AUCTION_STATUS.LIVE === state ? (
         <div
           id="BidBarSection"
-          className="bidbar grid grid-cols-3 gap-3 pt-4 mb-5"
+          className="bidbar grid grid-cols-3 gap-3 pt-3 mb-3"
         >
           {/* Left - Number Pad */}
           <div className="bbnumPad col-span-2 flex gap-1.5">
@@ -118,7 +118,7 @@ const BidBarSection = ({
                   <button
                     key={idx}
                     onClick={() => handleNumpadClick(val)}
-                    className="bg-white/10 backdrop-blur-sm text-white text-lg h-12 rounded-[8px] flex items-center justify-center shadow-sm transition active:scale-95"
+                    className="bg-white/10 backdrop-blur-sm text-white text-lg h-10 rounded-[8px] flex items-center justify-center shadow-sm transition active:scale-95"
                   >
                     {val === '✖️' ? (
                       <CustomImage

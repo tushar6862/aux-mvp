@@ -52,7 +52,7 @@ const PlayerIconSection = ({ profiles }) => {
 
       <div className="container-fluid">
         <div className="font-medium text-base">Bidders</div>
-        <div className="mt-2 flex flex-wrap gap-1">
+        <div className="mt-1 flex flex-wrap gap-1">
           {profiles?.length ? (
             profiles?.map?.((profile, index) => {
               return (

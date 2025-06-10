@@ -201,7 +201,7 @@ export const FooterMenuButton = ({
 }) => (
   <button
     type="button"
-    className={`cursor-pointer relative flex items-center rounded-xl flex-col justify-center px-2.5 pt-4 pb-3 gap-1 select-none flex-1 text-white
+    className={`cursor-pointer relative flex items-center rounded-xl flex-col justify-center px-2 pt-3 pb-2 gap-1 select-none flex-1 text-white
   ${active && 'text-white'}`}
     onClick={(e) => onClick?.(e)}
   >

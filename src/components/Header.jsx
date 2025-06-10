@@ -13,7 +13,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const { userInfo, walletBalance } = useSelector(userState);
   return (
-    <div className="container-fluid pt-[20px] pb-[10px]">
+    <div className="container-fluid py-[10px]">
       <div className="flex justify-between">
         {userInfo?.accessToken ? (
           <AnimatedFlipCard
