@@ -89,7 +89,7 @@ const BidBarSection = ({
       </div>
       {AUCTION_STATUS.LIVE === state ? (
         <div className="absolute z-10 -bottom-[60px] flex items-center w-full justify-center text-sm font-bold">
-          {productPrice ? CURRENCY_SYMBOLS.DEFAULT + productPrice : null}
+          {/* {productPrice ? CURRENCY_SYMBOLS.DEFAULT + productPrice : null} */}
         </div>
       ) : null}
       {AUCTION_STATUS.LIVE === state ? (
